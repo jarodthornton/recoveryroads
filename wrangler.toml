@@ -1,0 +1,12 @@
+# Recovery Roads – Cloudflare Pages configuration
+# https://recoveryroads.com
+
+name = "recoveryroads"
+compatibility_date = "2026-06-28"
+
+# Pages configuration
+pages_build_output_dir = "dist"
+
+[env.production]
+# Custom domain will be added once the zone is set up in Cloudflare
+# Run: npx wrangler pages project domain add recoveryroads recoveryroads.com

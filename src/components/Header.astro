@@ -1,0 +1,218 @@
+---
+// Header.astro – Site header with nav and mobile menu
+const currentPath = Astro.url.pathname;
+---
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="header__logo" aria-label="Recovery Roads Home">
+      <span class="header__logo-text">RECOVERY ROADS</span>
+    </a>
+
+    <button class="header__menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="header__menu-icon"></span>
+    </button>
+
+    <nav class="header__nav" id="mainNav" role="navigation" aria-label="Main navigation">
+      <ul class="header__nav-list">
+        <li><a href="/" class={currentPath === "/" ? "active" : ""}>Home</a></li>
+        <li><a href="/watch" class={currentPath === "/watch" ? "active" : ""}>Watch</a></li>
+        <li><a href="/share" class={currentPath === "/share" ? "active" : ""}>Share Your Story</a></li>
+        <li><a href="/about" class={currentPath === "/about" ? "active" : ""}>Learn More</a></li>
+      </ul>
+      <div class="header__social">
+        <a href="https://www.facebook.com/pg/recoveryroads" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/channel/UCBJsUr5yUwVVdySiV-L3a3Q" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("mainNav");
+  toggle?.addEventListener("click", () => {
+    const expanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!expanded));
+    nav?.classList.toggle("header__nav--open");
+    toggle.classList.toggle("header__menu-toggle--open");
+  });
+</script>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--color-white);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .header__logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .header__logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+  }
+
+  .header__menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: relative;
+    width: 32px;
+    height: 24px;
+  }
+
+  .header__menu-icon,
+  .header__menu-icon::before,
+  .header__menu-icon::after {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .header__menu-icon::before,
+  .header__menu-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .header__menu-icon::before { top: 0; }
+  .header__menu-icon::after { bottom: 0; }
+
+  .header__menu-toggle--open .header__menu-icon {
+    background: transparent;
+  }
+
+  .header__menu-toggle--open .header__menu-icon::before {
+    top: 10px;
+    transform: rotate(45deg);
+  }
+
+  .header__menu-toggle--open .header__menu-icon::after {
+    bottom: 11px;
+    transform: rotate(-45deg);
+  }
+
+  .header__nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .header__nav-list {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .header__nav-list a {
+    color: var(--color-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    padding-bottom: 0.25rem;
+  }
+
+  .header__nav-list a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width 0.3s ease;
+  }
+
+  .header__nav-list a:hover::after,
+  .header__nav-list a.active::after {
+    width: 100%;
+  }
+
+  .header__nav-list a.active {
+    color: var(--color-accent);
+  }
+
+  .header__social {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: var(--color-primary);
+  }
+
+  .header__social a {
+    color: var(--color-primary);
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .header__social a:hover {
+    opacity: 1;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .header__menu-toggle {
+      display: block;
+    }
+
+    .header__nav {
+      display: none;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--color-white);
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+      gap: 1.5rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .header__nav--open {
+      display: flex;
+    }
+
+    .header__nav-list {
+      flex-direction: column;
+      gap: 1.25rem;
+      text-align: center;
+    }
+
+    .header__nav-list a {
+      font-size: 1.1rem;
+    }
+  }
+</style>

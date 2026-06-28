@@ -1,0 +1,81 @@
+---
+// Footer.astro – Site footer with memorial and links
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__memorial">
+      <p class="footer__memorial-text">
+        IN LOVING MEMORY OF <strong>JESSE ALLEN ROTH</strong> &amp; <strong>STEPHANIE SUZANNE CRAWFORD</strong>
+      </p>
+    </div>
+
+    <div class="footer__links">
+      <a href="https://nextstepky.com/" target="_blank" rel="noopener">
+        Visit Next Step <span aria-hidden="true">&#8599;</span>
+      </a>
+      <span class="footer__separator">|</span>
+      <a href="https://www.facebook.com/pg/recoveryroads" target="_blank" rel="noopener">Facebook</a>
+      <span class="footer__separator">|</span>
+      <a href="https://www.youtube.com/channel/UCBJsUr5yUwVVdySiV-L3a3Q" target="_blank" rel="noopener">YouTube</a>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 Recovery Roads. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-dark);
+    color: rgba(255,255,255,0.8);
+    padding: 3rem 0 2rem;
+    text-align: center;
+  }
+
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .footer__memorial-text {
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    color: var(--color-warm);
+  }
+
+  .footer__memorial-text strong {
+    color: var(--color-white);
+  }
+
+  .footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .footer__links a {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .footer__links a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer__separator {
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer__bottom {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    margin-top: 0.5rem;
+  }
+</style>
