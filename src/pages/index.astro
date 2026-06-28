@@ -1,6 +1,207 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SignupForm from "../components/SignupForm.astro";
+
+const heroBg = "https://recoveryroads.com/wp-content/uploads/2020/03/asphalt-environment-grass-highway-239520.jpg";
+const shareBg = "https://recoveryroads.com/wp-content/uploads/2020/03/picture-smartphone-elephants-woman-88476.jpg";
+const watchBg = "https://recoveryroads.com/wp-content/uploads/2020/03/close-up-photography-of-road-2453286.jpg";
+const memorialBg = "https://recoveryroads.com/wp-content/uploads/2020/03/person-holding-multi-colored-heart-shaped-ornament-3738057.jpg";
+---
+
+<BaseLayout
+  title="Welcome to Recovery Roads – Recovery Roads"
+  description="Unscripted stress free one-on-one creative capture of short recovery stories to share experience, strength and hope."
+>
+  <!-- Hero Parallax -->
+  <section class="hero parallax" style="background-image: url('{heroBg}')">
+    <div class="container hero__content">
+      <h1 class="hero__title">RECOVERY ROADS</h1>
+      <p class="hero__tagline">
+        We all have a story, our own journey – <em><strong>the road to recovery</strong></em>
+      </p>
+      <div class="hero__cta">
+        <a href="#signup" class="btn btn-primary hero__btn">Share</a>
+        <a href="/watch" class="btn btn-outline hero__btn">Watch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stories on the Go -->
+  <section class="section" id="stories">
+    <div class="container">
+      <h2 class="section__title">Stories on the Go</h2>
+      <p class="section__subtitle">
+        Unscripted stress free one-on-one creative capture of short recovery stories
+        <strong>to share experience, strength and hope.</strong>
+      </p>
+      <ul class="features-list">
+        <li><span class="features-list__icon" aria-hidden="true">&#128663;</span> Road-trip style interviews</li>
+        <li><span class="features-list__icon" aria-hidden="true">&#128172;</span> Engaging dialogue</li>
+        <li><span class="features-list__icon" aria-hidden="true">&#9728;&#65039;</span> Fresh air and sunshine</li>
+        <li><span class="features-list__icon" aria-hidden="true">&#129309;</span> Community driven</li>
+        <li><span class="features-list__icon" aria-hidden="true">&#10084;&#65039;</span> Recovery focused</li>
+      </ul>
+      <div class="cta-center">
+        <a href="#signup" class="btn btn-primary">Are You Ready?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Share parallax -->
+  <section class="section parallax share-parallax" style="background-image: url('{shareBg}')">
+    <div class="container share-parallax__content">
+      <h2>Share Your Story</h2>
+      <p>Your journey can inspire someone else's first step on the road to recovery.</p>
+    </div>
+  </section>
+
+  <!-- Signup -->
+  <SignupForm />
+
+  <!-- Watch parallax -->
+  <section class="section parallax watch-parallax" style="background-image: url('{watchBg}')">
+    <div class="container watch-parallax__content">
+      <h2>Watch Stories</h2>
+      <p>Real stories from real people who have walked the road before you.</p>
+      <a href="/watch" class="btn btn-outline">Watch Now</a>
+    </div>
+  </section>
+
+  <!-- Memorial parallax -->
+  <section class="section parallax memorial-parallax" style="background-image: url('{memorialBg}')">
+    <div class="container memorial-parallax__content">
+      <p class="memorial-parallax__text">
+        IN LOVING MEMORY OF<br />
+        <strong>JESSE ALLEN ROTH</strong> &amp; <strong>STEPHANIE SUZANNE CRAWFORD</strong>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero__content {
+    text-align: center;
+    padding: 6rem 1.5rem;
+  }
+
+  .hero__title {
+    color: var(--color-white);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .hero__tagline {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1rem, 2.2vw, 1.35rem);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.6;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero__tagline em {
+    font-style: normal;
+  }
+
+  .hero__tagline strong {
+    font-weight: 700;
+  }
+
+  .hero__cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero__btn {
+    min-width: 140px;
+    font-size: 0.95rem;
+    padding: 0.95rem 2.6rem;
+  }
+
+  .features-list {
+    list-style: none;
+    max-width: 480px;
+    margin: 2rem auto 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .features-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    font-weight: 500;
+  }
+
+  .features-list__icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    width: 2rem;
+    text-align: center;
+  }
+
+  .cta-center {
+    text-align: center;
+  }
+
+  .share-parallax,
+  .watch-parallax,
+  .memorial-parallax {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .share-parallax__content h2,
+  .watch-parallax__content h2,
+  .memorial-parallax__content p {
+    color: var(--color-white);
+  }
+
+  .share-parallax__content p,
+  .watch-parallax__content p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .memorial-parallax__text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .memorial-parallax__text strong {
+    font-size: 1.1em;
+  }
+
+  @media (max-width: 768px) {
+    .share-parallax,
+    .watch-parallax,
+    .memorial-parallax {
+      min-height: 300px;
+    }
+  }
+</style>
 ---
 
 <BaseLayout

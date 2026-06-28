@@ -1,53 +1,49 @@
 ---
-// Footer.astro – Site footer with memorial and links
+// Footer.astro – Matching original recoveryroads.com footer
 ---
 
 <footer class="footer">
   <div class="container footer__inner">
-    <div class="footer__memorial">
-      <p class="footer__memorial-text">
-        IN LOVING MEMORY OF <strong>JESSE ALLEN ROTH</strong> &amp; <strong>STEPHANIE SUZANNE CRAWFORD</strong>
-      </p>
-    </div>
+    <p class="footer__memorial">
+      IN LOVING MEMORY OF <strong>JESSE ALLEN ROTH</strong> &amp; <strong>STEPHANIE SUZANNE CRAWFORD</strong>
+    </p>
 
     <div class="footer__links">
-      <a href="https://nextstepky.com/" target="_blank" rel="noopener">
-        Visit Next Step <span aria-hidden="true">&#8599;</span>
-      </a>
-      <span class="footer__separator">|</span>
+      <a href="https://nextstepky.com/" target="_blank" rel="noopener">Visit Next Step</a>
+      <span aria-hidden="true">|</span>
       <a href="https://www.facebook.com/pg/recoveryroads" target="_blank" rel="noopener">Facebook</a>
-      <span class="footer__separator">|</span>
+      <span aria-hidden="true">|</span>
       <a href="https://www.youtube.com/channel/UCBJsUr5yUwVVdySiV-L3a3Q" target="_blank" rel="noopener">YouTube</a>
     </div>
 
-    <div class="footer__bottom">
-      <p>&copy; 2026 Recovery Roads. All rights reserved.</p>
-    </div>
+    <p class="footer__copy">&copy; 2026 Recovery Roads. Visit <a href="https://nextstepky.com/" target="_blank" rel="noopener">Next Step</a> for Recovery Resources</p>
   </div>
 </footer>
 
 <style>
   .footer {
-    background: var(--color-dark);
-    color: rgba(255,255,255,0.8);
-    padding: 3rem 0 2rem;
+    background: var(--color-black);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 2.5rem 0;
     text-align: center;
+    font-size: 0.9rem;
   }
 
   .footer__inner {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     align-items: center;
   }
 
-  .footer__memorial-text {
-    font-size: 0.95rem;
+  .footer__memorial {
+    font-size: 0.9rem;
     letter-spacing: 0.04em;
-    color: var(--color-warm);
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
   }
 
-  .footer__memorial-text strong {
+  .footer__memorial strong {
     color: var(--color-white);
   }
 
@@ -57,25 +53,30 @@
     justify-content: center;
     gap: 0.75rem;
     align-items: center;
+    color: rgba(255, 255, 255, 0.5);
   }
 
   .footer__links a {
-    color: rgba(255,255,255,0.7);
+    color: var(--color-blue);
     font-size: 0.9rem;
     transition: color 0.2s;
   }
 
   .footer__links a:hover {
-    color: var(--color-accent);
+    color: var(--color-red);
   }
 
-  .footer__separator {
-    color: rgba(255,255,255,0.3);
-  }
-
-  .footer__bottom {
+  .footer__copy {
     font-size: 0.8rem;
     opacity: 0.5;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .footer__copy a {
+    color: var(--color-blue);
+  }
+
+  .footer__copy a:hover {
+    color: var(--color-red);
   }
 </style>

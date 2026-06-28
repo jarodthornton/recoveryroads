@@ -1,62 +1,38 @@
 ---
-// SignupForm.astro – Share Your Story signup form
+// SignupForm.astro – Matching original recoveryroads.com signup form
 ---
 
 <section class="signup" id="signup">
   <div class="container">
     <h2 class="section__title">Are You Ready?</h2>
-    <p class="section__subtitle">
-      Unscripted, stress-free, one-on-one creative capture of short recovery stories to share experience, strength and hope.
-    </p>
 
-    <div class="signup__features">
-      <div class="signup__feature">
-        <span class="signup__feature-icon" aria-hidden="true">&#128663;</span>
-        <span>Road-trip style interviews</span>
-      </div>
-      <div class="signup__feature">
-        <span class="signup__feature-icon" aria-hidden="true">&#128172;</span>
-        <span>Engaging dialogue</span>
-      </div>
-      <div class="signup__feature">
-        <span class="signup__feature-icon" aria-hidden="true">&#9728;&#65039;</span>
-        <span>Fresh air and sunshine</span>
-      </div>
-      <div class="signup__feature">
-        <span class="signup__feature-icon" aria-hidden="true">&#129309;</span>
-        <span>Community driven</span>
-      </div>
-      <div class="signup__feature">
-        <span class="signup__feature-icon" aria-hidden="true">&#10084;&#65039;</span>
-        <span>Recovery focused</span>
-      </div>
-    </div>
-
-    <form class="signup__form" id="signupForm" name="signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form class="signup__form" name="signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="signup">
       <p hidden><input name="bot-field"></p>
 
-      <div class="signup__field">
-        <label for="name">Your Name <span class="signup__required">*</span></label>
-        <input type="text" id="name" name="name" required placeholder="Enter your name">
-      </div>
+      <p class="signup__row">
+        <label for="name">Your Name <span class="signup__required">(required)</span></label>
+        <input type="text" id="name" name="name" required placeholder="First Lastname">
+      </p>
 
-      <div class="signup__field">
-        <label for="email">Your Email <span class="signup__required">*</span></label>
-        <input type="email" id="email" name="email" required placeholder="Enter your email">
-      </div>
+      <p class="signup__row">
+        <label for="email">Your Email <span class="signup__required">(required)</span></label>
+        <input type="email" id="email" name="email" required placeholder="you@youremail.com">
+      </p>
 
-      <div class="signup__field">
+      <p class="signup__row">
         <label for="sobrietyDate">Sobriety Date</label>
-        <input type="text" id="sobrietyDate" name="sobrietyDate" placeholder="MM/DD/YYYY (optional)">
-      </div>
+        <input type="text" id="sobrietyDate" name="sobrietyDate" placeholder="11/25/2017">
+      </p>
 
-      <div class="signup__field signup__field--full">
+      <p class="signup__row">
         <label for="message">Personal Reference / Message</label>
-        <textarea id="message" name="message" rows="4" placeholder="Tell us a little about yourself..."></textarea>
-      </div>
+        <textarea id="message" name="message" rows="4" placeholder="(name of person) has been with me throughout my entire recovery and can speak for the work I've done. I would love to share my story!"></textarea>
+      </p>
 
-      <button type="submit" class="btn btn-primary signup__submit">Send</button>
+      <p class="signup__row">
+        <button type="submit" class="btn btn-primary">Send</button>
+      </p>
     </form>
   </div>
 </section>
@@ -64,86 +40,60 @@
 <style>
   .signup {
     padding: 5rem 0;
-  }
-
-  .signup__features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .signup__feature {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.05rem;
-    color: var(--color-primary);
-  }
-
-  .signup__feature-icon {
-    font-size: 1.4rem;
-  }
-
-  .signup__form {
-    max-width: 560px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-  }
-
-  .signup__field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .signup__field--full {
-    grid-column: 1 / -1;
-  }
-
-  .signup__field label {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--color-primary);
-  }
-
-  .signup__required {
-    color: var(--color-accent);
-  }
-
-  .signup__field input,
-  .signup__field textarea {
-    padding: 0.75rem 1rem;
-    border: 2px solid #ddd;
-    border-radius: var(--radius);
-    font-size: 1rem;
-    font-family: var(--font-body);
-    transition: border-color 0.3s ease;
     background: var(--color-white);
   }
 
-  .signup__field input:focus,
-  .signup__field textarea:focus {
+  .signup__form {
+    max-width: 540px;
+    margin: 2.5rem auto 0;
+  }
+
+  .signup__row {
+    margin-bottom: 1.25rem;
+  }
+
+  .signup__row label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    margin-bottom: 0.35rem;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .signup__required {
+    font-weight: 400;
+    color: var(--color-gray);
+    text-transform: none;
+    font-family: var(--font-body);
+  }
+
+  .signup__row input,
+  .signup__row textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: border-color 0.3s ease;
+    background: #fafafa;
+  }
+
+  .signup__row input:focus,
+  .signup__row textarea:focus {
     outline: none;
-    border-color: var(--color-accent);
+    border-color: var(--color-blue);
+    background: var(--color-white);
+    box-shadow: 0 0 0 3px rgba(72, 156, 211, 0.1);
   }
 
-  .signup__submit {
-    grid-column: 1 / -1;
-    justify-self: center;
-    min-width: 180px;
+  .signup__row button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
     margin-top: 0.5rem;
-  }
-
-  @media (max-width: 600px) {
-    .signup__form {
-      grid-template-columns: 1fr;
-    }
   }
 </style>
